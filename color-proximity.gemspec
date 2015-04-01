@@ -9,8 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Garen Torikian"]
   spec.email         = ["gjtorikian@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
+  spec.summary       = %q{Match the threshold of a color against a collection of colors.}
   spec.homepage      = 'https://github.com/gjtorikian/color-proximity'
   spec.license        = 'MIT'
 
