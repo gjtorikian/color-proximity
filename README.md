@@ -1,5 +1,7 @@
 # ColorProximity
 
+[![Build Status](https://travis-ci.org/gjtorikian/color-proximity.svg?branch=master)](https://travis-ci.org/gjtorikian/color-proximity)
+
 Given a threshold and a collection of colors, you'll be able to determine how close a given color is to matching a list.
 
 A [Euclidean distance algorithm](http://www.compuphase.com/cmetric.htm) is used to determine matches.
