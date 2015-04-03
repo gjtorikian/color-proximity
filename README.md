@@ -4,7 +4,7 @@
 
 Given a threshold and a collection of colors, you'll be able to determine how close a given color is to matching a list.
 
-A [Euclidean distance algorithm](http://www.compuphase.com/cmetric.htm) is used to determine matches.
+[A gem](https://github.com/mmozuras/color_difference) that implements a [CIEDE2000 color-difference formula](http://www.ece.rochester.edu/~gsharma/ciede2000/ciede2000noteCRNA.pdf) is the main backend used.
 
 ## Usage
 
