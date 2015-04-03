@@ -17,13 +17,13 @@ describe ColorProximity do
   end
 
   it 'works for multiple failures' do
-    cp = ColorProximity.new(5, ['000001', '000002', 'ffffff']).within_threshold?('000003')
+    cp = ColorProximity.new(0.5, ['000001', '000002', 'ffffff']).within_threshold?('000003')
     expect(cp.first).to eq(false)
     expect(cp.last).to eq(['000001', '000002'])
   end
 
   it 'can change collections' do
-    cp = ColorProximity.new(5, ['000001', '000002'])
+    cp = ColorProximity.new(0.5, ['000001', '000002'])
     expect(cp.within_threshold?('000003').first).to eq(false)
 
     cp.collection = ['ffffff']
@@ -31,15 +31,21 @@ describe ColorProximity do
   end
 
   it 'can change thresholds' do
-    cp = ColorProximity.new(5, ['000001', '000002'])
+    cp = ColorProximity.new(0.5, ['000001', '000002'])
     expect(cp.within_threshold?('000003').first).to eq(false)
 
-    cp.threshold = 1
+    cp.threshold = 0.000001
     expect(cp.within_threshold?('000003').first).to eq(true)
   end
 
   it 'lists thresholds' do
-    cp = ColorProximity.new(5, ['000001', '000002', 'ffffff']).thresholds('000003')
-    expect(cp).to eq([3.3166247903554, 1.4142135623730951, 762.3437544835007])
+    cp = ColorProximity.new(0.5, ['000001', '000002', 'ffffff']).thresholds('000003')
+    expect(cp).to eq([0.00832, 0.00412, 0.99948])
+  end
+
+  it 'is better at yellow detection' do
+    cp = ColorProximity.new(0.1, ['fdcd00'])
+
+    expect(cp.within_threshold?('f3ca0a').first).to eq(false)
   end
 end
