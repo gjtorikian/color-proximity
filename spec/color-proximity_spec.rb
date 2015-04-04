@@ -9,11 +9,13 @@ describe ColorProximity do
     cp = ColorProximity.new(0.5, ['000000'])
     expect(cp.past_threshold?('000000').first).to eq(false)
     expect(cp.past_threshold?('000000').last).to eq(['000000'])
+    expect(cp.thresholds('000000')).to eq([0.0])
   end
 
   it 'works for complete opposites' do
     cp = ColorProximity.new(0.5, ['000000', '000001'])
     expect(cp.past_threshold?('ffffff').first).to eq(true)
+    expect(cp.thresholds('ffffff')).to eq([1.0, 0.99981])
   end
 
   it 'works for multiple failures' do
@@ -44,8 +46,9 @@ describe ColorProximity do
   end
 
   it 'is better at yellow detection' do
-    cp = ColorProximity.new(0.1, ['fdcd00'])
+    cp = ColorProximity.new(0.1, ['fdcd00', 'ffffff'])
 
     expect(cp.past_threshold?('f3ca0a').first).to eq(false)
+    expect(cp.past_threshold?('f3ca0a').last).to eq(['fdcd00'])
   end
 end
