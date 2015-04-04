@@ -11,10 +11,10 @@ Given a threshold and a collection of colors, you'll be able to determine how cl
 ``` ruby
 require 'color-proximity'
 cp = ColorProximity.new(0.5, ['000000'])
-cp.within_threshold?('000000') # [false, ['000000']]
+cp.past_threshold?('000000') # [false, ['000000']]
 
 cp.collection = ['ffffff'])
-cp.within_threshold?('000000') # [true]
+cp.past_threshold?('000000') # [true]
 
 cp.collection = ['000001', '000002', 'ffffff'])
 cp.thresholds('000003') # [3.3166247903554, 1.4142135623730951, 762.3437544835007]

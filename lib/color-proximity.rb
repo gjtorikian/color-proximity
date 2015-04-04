@@ -10,7 +10,7 @@ class ColorProximity
     @collection = collection
   end
 
-  def within_threshold?(color)
+  def past_threshold?(color)
     @collection.each_with_object([true]) do |collection_color, arr|
       proximity = proximity_of(color, collection_color)
       next unless @threshold > proximity
