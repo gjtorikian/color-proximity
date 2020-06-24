@@ -18,6 +18,7 @@ cp.past_threshold?('000000') # [true]
 
 cp.collection = (['000001', '000002', 'ffffff'])
 cp.thresholds('000003') # [0.00832, 0.00412, 0.99948]
+```
 
 A failure case returns an array with two elements: `false`, and the collection of colors that failed the threshold. Success cases return an array with one element: `true`. This is designed to make it easy to call `.first` on the result to validate it.
 
